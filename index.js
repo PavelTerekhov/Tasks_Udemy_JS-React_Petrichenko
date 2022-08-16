@@ -485,6 +485,43 @@ function standardizeStrings(arr) {
 }
 standardizeStrings(favoriteCities);
 
+// Task 12. Задачи на работу с массивами, часть 2
+
+// Продолжаем решение задач на массивы.
+// 3) Задача с собеседований. Напишите функцию reverse, которая принимает в себя строку и возвращает эту строку в обратном порядке.
+// Пример:
+// const someString = 'This is some strange string';
+// reverse(someString) => 'gnirts egnarts emos si sihT'
+// Функцию можно применить к любой строке. Если в функцию приходит не строка - вернуть сообщение "Ошибка!"
+// Это очень интересная задача, которую можно решить несколькими способами. Её дают для того, чтобы оценить навыки и знания программиста, посмотреть как он думает. Как небольшая подсказка, есть метод, который может вам помочь. И часть дополнительных вариантов решения мы тоже изучим в течении курса.
+
+const someString = 'This is some strange string';
+function reverse(str) {
+   if (typeof(str) !== "string") {
+      return "Ошибка!";
+   } 
+      let reverseString = "";
+      for (let i = str.length - 1; i >= 0; i--) {
+         reverseString += str[i];
+      }
+      return reverseString;
+   }
+reverse(someString);
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+function availableCurr(arr, missingCurr) {
+    let str = '';
+    arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
+    for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === missingCurr) {
+    continue;
+        }
+    str += `${arr[i]}\n`;
+    }
+    console.log(str);
+    return str;
+}
+availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY')
 
 
 
